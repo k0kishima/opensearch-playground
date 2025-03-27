@@ -8,6 +8,17 @@ services:
     ports:
       - "5432:5432"
 
+  opensearch:
+    build:
+      context: ./containers/opensearch
+    environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=FastApi@2025
+    ports:
+      - "9200:9200"
+
 networks:
   default:
     driver: bridge
