@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:17.4
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: opensearch
+    ports:
+      - "5432:5432"
+
+networks:
+  default:
+    driver: bridge
