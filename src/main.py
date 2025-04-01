@@ -1,10 +1,5 @@
-from fastapi import FastAPI, APIRouter
-
-router = APIRouter()
-
-@router.get("/ping")
-def good_ping():
-    return {"pong": True}
+from fastapi import FastAPI
+from src.companies.router import router as companies_router
 
 app = FastAPI()
-app.include_router(router)
+app.include_router(companies_router)
